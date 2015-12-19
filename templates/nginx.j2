@@ -1,3 +1,13 @@
+################################################
+#                                              #
+#     FILE UNDER ANSIBLE CONFIG MANAGEMENT     #
+#                                              #
+#              keep hands away                 #
+#                                              #
+#     ansible-nginx/templates/nginx.j2         #
+#                                              #
+################################################
+
 user www-data;
 worker_processes {{ ansible_processor_cores }};
 
