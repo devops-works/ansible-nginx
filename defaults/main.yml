@@ -1,5 +1,8 @@
 nginx_add_default: no
 nginx_ie8_support: yes
 nginx_keepalive_timeout: 75s
+nginx_map_hash_bucket_size: 64
+nginx_multi_accept: "on"
 nginx_root: /var/lib/nginx/
 nginx_worker_connections: 1024
+nginx_worker_processes: "{{ansible_processor_cores}}"

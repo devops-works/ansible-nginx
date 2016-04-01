@@ -9,13 +9,13 @@
 ################################################
 
 user www-data;
-worker_processes {{ ansible_processor_cores }};
+worker_processes {{ nginx_worker_processes }};
 
 pid         /var/run/nginx.pid;
 
 events {
   worker_connections {{ nginx_worker_connections }};
-  # multi_accept on;
+  multi_accept {{ nginx_multi_accept }};
 }
 
 http {
@@ -85,6 +85,7 @@ http {
   ##
   # If HTTPS, then set a variable so it can be passed along.
   ##
+  map_hash_bucket_size {{ nginx_map_hash_bucket_size }};
   map $scheme $server_https {
     default off;
     https on;
