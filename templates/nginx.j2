@@ -82,6 +82,8 @@ http {
               text/xml
               text/javascript;
 
+  map_hash_bucket_size {{ nginx_map_hash_bucket_size }};
+
   ##
   # If HTTPS, then set a variable so it can be passed along.
   ##
