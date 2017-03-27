@@ -2,4 +2,10 @@
 tests/ansible-nginx/playbooks/
 .rspec
 .vagrant
+Gemfile
+Gemfile.lock
+Rakefile
+spec/
+.log
+
 
