@@ -6,6 +6,6 @@ Gemfile
 Gemfile.lock
 Rakefile
 spec/
-.log
+*.log
 
 

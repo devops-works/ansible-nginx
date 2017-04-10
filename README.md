@@ -1,11 +1,6 @@
-nginx Ansible playbook
-======================
+nginx Ansible role
+==================
 
-[![Travis
-CI](http://img.shields.io/travis/erasme/ansible-nginx.svg?style=flat)](http://travis-ci.org/erasme/ansible-nginx)
-[![test-suite](http://img.shields.io/badge/ansible--roles--specs-ansible--nginx-blue.svg?style=flat)](https://github.com/erasme/ansible-roles-specs/tree/master/ansible-nginx/)
-[![Ansible
-Galaxy](http://img.shields.io/badge/galaxy-erasme.nginx-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2964)
 
 This role will install nginx from the nginx PPA. It is very basic, and the
 possible configuration pretty limited.
@@ -13,8 +8,6 @@ possible configuration pretty limited.
 The intent is to have a basic config in place. Later, in your specific roles,
 you just need to add entries in `/etc/nginx/sites-available`, link the file in
 `/etc/nginx/sites-enable` and restart nginx.
-
-[php5-fpm](https://github.com/erasme/ansible-php5-fpm) can be used in conjunction with this role.
 
 Requirements
 ------------
