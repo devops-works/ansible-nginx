@@ -2,26 +2,25 @@
 dependency:
   name: galaxy
 driver:
-  name: vagrant
-  provider:
-    name: virtualbox
+  name: gce
 lint:
   name: yamllint
 platforms:
   - name: ansible-nginx-1604
-    box: ubuntu/xenial64
-    memory: 512
-    cpus: 1
+    zone: europe-west1-b
+    machine_type: f1-micro
+    image: ubuntu-1604-xenial-v20190807
   - name: ansible-nginx-1804
-    box: ubuntu/bionic64
-    memory: 512
-    cpus: 1
+    zone: europe-west1-b
+    machine_type: f1-micro
+    image: ubuntu-1804-bionic-v20190813a
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
   playbooks:
     converge: ../playbook.yml
+
 verifier:
   name: testinfra
   env:

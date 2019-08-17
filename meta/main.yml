@@ -2,7 +2,7 @@
 galaxy_info:
   author: Michel Blanc
   description: nginx role
-  company: ERASME/Grand-Lyon Métropole
+  company: Devosworks
   license: MIT
   min_ansible_version: 1.8
 
