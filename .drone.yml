@@ -23,6 +23,7 @@ steps:
       # - molecule test
       # - workon 2.5
       # - molecule test
+      - source /etc/bash_completion.d/virtualenvwrapper
       - mkdir -p molecule/roles && ln -s ../ molecule/roles/ansible-nginx
       # - ln -s ../src ../ansible-nginx
       # - workon 2.7
