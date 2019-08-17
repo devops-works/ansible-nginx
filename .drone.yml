@@ -29,7 +29,9 @@ steps:
       - ls /usr/libexec/virtualenv || true
       - echo "$$"
       - pwd
+      - ls
       - ln -s ../src ../ansible-nginx
+      - ls -la ..
       # - workon 2.7
       # - molecule test'
       # - bash -lc 'source /etc/bash_completion.d/virtualenvwrapper; workon 2.7; MOLECULE_DEBUG=1 molecule test -s gce'
