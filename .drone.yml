@@ -25,7 +25,11 @@ steps:
       # - molecule test
       - id
       - cat /etc/environment
+      - echo $$
       - ls /usr/libexec/virtualenv || true
+      - echo $$
+      - pwd
+      - ls -lR
       # - workon 2.7
       # - molecule test'
       # - bash -lc 'source /etc/bash_completion.d/virtualenvwrapper; workon 2.7; MOLECULE_DEBUG=1 molecule test -s gce'
