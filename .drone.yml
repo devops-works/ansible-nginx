@@ -7,7 +7,7 @@ steps:
     image: devopsworks/ansible-cloud
     pull: always
     shell: bash
-
+    
     environment:
       GCE_CREDENTIALS:
         from_secret: gce_credentials
@@ -17,22 +17,9 @@ steps:
         from_secret: gce_project_id
 
     commands:
-      # - workon 2.4
-      # - molecule test
-      # - workon 2.5
-      # - molecule test
-      # - workon 2.5
-      # - molecule test
-      - source /etc/bash_completion.d/virtualenvwrapper
-      - mkdir -p molecule/roles && ln -s ../ molecule/roles/ansible-nginx
-      # - ln -s ../src ../ansible-nginx
-      # - workon 2.7
-      # - molecule test'
-      # - bash -lc 'source /etc/bash_completion.d/virtualenvwrapper; workon 2.7; MOLECULE_DEBUG=1 molecule test -s gce'
-      - workon 2.7; molecule test -s gce
-      # - molecule test
-      # - workon 2.8
-      # - molecule test
+      - mkdir -p molecule/roles
+      - ln -s ../ molecule/roles/ansible-nginx
+      - bash -lc 'source /etc/bash_completion.d/virtualenvwrapper; workon 2.7; molecule test -s gce'
 
 ---
 kind: secret
