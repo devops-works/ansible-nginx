@@ -25,9 +25,9 @@ steps:
       # - molecule test
       - id
       - cat /etc/environment
-      - ps
+      - echo "$$"
       - ls /usr/libexec/virtualenv || true
-      - ps
+      - echo "$$"
       - pwd
       - ln -s ../src ../ansible-nginx
       # - workon 2.7
