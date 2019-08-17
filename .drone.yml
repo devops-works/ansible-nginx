@@ -30,8 +30,8 @@ steps:
       - echo "$$"
       - pwd
       - ls
-      - ln -s ../src ../ansible-nginx
-      - ls -la ..
+      - mkdir molecule/default/roles && ln -s '../../..' molecule/default/roles/ansible-nginx
+      # - ln -s ../src ../ansible-nginx
       # - workon 2.7
       # - molecule test'
       # - bash -lc 'source /etc/bash_completion.d/virtualenvwrapper; workon 2.7; MOLECULE_DEBUG=1 molecule test -s gce'
