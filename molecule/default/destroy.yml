@@ -8,7 +8,8 @@
   vars:
     gce_credentials_file: /tmp/gce_credentials
     gce_credentials: "{{ lookup('env', 'GCE_CREDENTIALS') }}"
-
+    ssh_identity_file: "{{ lookup('env', 'HOME') }}/.ssh/google_compute_engine_temp"
+    ssh_identity_pub: "{{ lookup('file', ssh_identity_file + '.pub') }}"
   tasks:
     - name: Create credentials file
       copy:
@@ -36,10 +37,15 @@
       retries: 300
       with_items: "{{ server.results }}"
 
-    - name: Remove credentials file
+    - name: Remove credentials files
       file:
-        path: "{{ gce_credentials_file }}"
+        path: "{{ item }}"
         state: absent
+      loop:
+        - "{{ ssh_identity_file }}"
+        - "{{ ssh_identity_file }}.pub"
+        - "{{ gce_credentials_file }}"
+
     # Mandatory configuration for Molecule to function.
 
     - name: Populate instance config
