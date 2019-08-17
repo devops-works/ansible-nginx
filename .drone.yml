@@ -5,6 +5,8 @@ name: default
 steps:
 - name: build
   image: devopsworks/ansible-cloud
+  pull: always
+
   environment:
     GCE_CREDENTIALS:
       from_secret: gce_credentials
@@ -12,6 +14,7 @@ steps:
       from_secret: gce_service_account_email
     GCE_PROJECT_ID:
       from_secret: gce_project_id
+
   commands:
     - molecule test
 
