@@ -6,7 +6,7 @@ steps:
   - name: build
     image: devopsworks/ansible-cloud
     pull: always
-    shell: "bash -l"
+    shell: bash
 
     environment:
       GCE_CREDENTIALS:
