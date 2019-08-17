@@ -6,7 +6,7 @@ steps:
   - name: build
     image: devopsworks/ansible-cloud
     pull: always
-    shell: bash
+    shell: "bash -l"
 
     environment:
       GCE_CREDENTIALS:
@@ -23,20 +23,12 @@ steps:
       # - molecule test
       # - workon 2.5
       # - molecule test
-      - id
-      - cat /etc/environment
-      - echo ${$}
-      - ls /usr/libexec/virtualenv || true
-      - echo ${$}
-      - pwd
-      - ls
       - mkdir -p molecule/roles && ln -s ../ molecule/roles/ansible-nginx
-      - ls /drone/src/molecule/roles
       # - ln -s ../src ../ansible-nginx
       # - workon 2.7
       # - molecule test'
       # - bash -lc 'source /etc/bash_completion.d/virtualenvwrapper; workon 2.7; MOLECULE_DEBUG=1 molecule test -s gce'
-      - bash -lc 'source /etc/bash_completion.d/virtualenvwrapper; workon 2.7; molecule test -s gce'
+      - workon 2.7; molecule test -s gce
       # - molecule test
       # - workon 2.8
       # - molecule test
