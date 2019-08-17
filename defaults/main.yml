@@ -1,3 +1,4 @@
+---
 nginx_add_default: no
 nginx_ie8_support: yes
 nginx_keepalive_timeout: 75s

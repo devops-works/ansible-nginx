@@ -1,3 +1,4 @@
+---
 - name: Adds nginx ppa
   apt_repository:
     repo: "ppa:nginx/stable"
@@ -10,13 +11,13 @@
 - name: Installs nginx
   apt:
     pkg: nginx-full
-    state: latest
+    state: latest  # noqa 403
     update_cache: yes
   register: __nginx_just_installed
 
 - name: Writes nginx.conf
   template:
-    src: "../templates/nginx.j2"
+    src: nginx.j2
     dest: "/etc/nginx/nginx.conf"
   notify:
     - Restart nginx
@@ -35,7 +36,7 @@
 
 - name: Writes nginx.conf
   template:
-    src: "../templates/nginx.j2"
+    src: nginx.j2
     dest: "/etc/nginx/nginx.conf"
   notify:
     - Reload nginx
@@ -47,8 +48,9 @@
     mode: 0644
 
 - name: Enables nginx at start
-# service module is severely broken on 14.04
-#  service: name=nginx enabled=yes
+  # service module is severely broken on 14.04
+  # service: name=nginx enabled=yes
   command: update-rc.d nginx defaults
-  when: __nginx_just_installed|changed
-  notify: Restart nginx
+  when: __nginx_just_installed is changed  # noqa 503
+  notify:
+    - Restart nginx

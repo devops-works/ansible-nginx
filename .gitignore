@@ -7,5 +7,6 @@ Gemfile.lock
 Rakefile
 spec/
 *.log
+*.pyc
 
 

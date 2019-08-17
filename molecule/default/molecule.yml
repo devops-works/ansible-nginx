@@ -1,0 +1,20 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: gce
+lint:
+  name: yamllint
+platforms:
+  - name: ansible-nginx-1804
+    zone: europe-west1-b
+    machine_type: f1-micro
+    image: ubuntu-1804-bionic-v20190813a
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

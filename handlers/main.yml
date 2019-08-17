@@ -1,3 +1,4 @@
+---
 - name: Restart nginx
   action: service name=nginx state=restarted
   notify: Check nginx
