@@ -16,16 +16,17 @@ steps:
       from_secret: gce_project_id
 
   commands:
-    - workon 2.4
-    - molecule test
-    - workon 2.5
-    - molecule test
-    - workon 2.5
-    - molecule test
-    - workon 2.7
-    - molecule test
-    - workon 2.8
-    - molecule test
+    # - workon 2.4
+    # - molecule test
+    # - workon 2.5
+    # - molecule test
+    # - workon 2.5
+    # - molecule test
+    - id
+    - bash -lc 'workon 2.7; molecule test'
+    # - molecule test
+    # - workon 2.8
+    # - molecule test
 
 ---
 kind: secret
