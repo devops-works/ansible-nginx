@@ -2,14 +2,6 @@
 kind: pipeline
 name: default
 
-matrix:
-  ANSIBLE_VERSION:
-    - 2.4
-    - 2.5
-    - 2.6
-    - 2.7
-    - 2.8
-
 steps:
 - name: build
   image: devopsworks/ansible-cloud
@@ -24,7 +16,15 @@ steps:
       from_secret: gce_project_id
 
   commands:
-    - workon ${ANSIBLE_VERSION}
+    - workon 2.4
+    - molecule test
+    - workon 2.5
+    - molecule test
+    - workon 2.5
+    - molecule test
+    - workon 2.7
+    - molecule test
+    - workon 2.8
     - molecule test
 
 ---
