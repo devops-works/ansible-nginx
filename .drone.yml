@@ -7,7 +7,7 @@ steps:
     image: devopsworks/ansible-cloud
     pull: always
     shell: bash
-    
+
     environment:
       GCE_CREDENTIALS:
         from_secret: gce_credentials
