@@ -11,7 +11,7 @@ install:
   - pip install -q molecule
 
 script:
-  - MOLECULE_DEBUG=1 molecule test -s gce
+  - molecule test -s gce
 
 notifications:
   slack:
