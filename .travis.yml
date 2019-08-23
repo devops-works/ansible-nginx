@@ -4,12 +4,10 @@ language: python
 env:
   - ROLE=$(echo $TRAVIS_REPO_SLUG | cut -f2 -d'/')
 
-virtualenv:
-  system_site_packages: true
-
 before_install: true
 
-install: true
+install:
+  - pip install molecule ansible==2.7
 
 script:
   - molecule test -s gce
