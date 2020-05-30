@@ -37,3 +37,6 @@
     src: logrotate_nginx.j2
     dest: /etc/logrotate.d/nginx
     mode: 0644
+  tags:
+    - nginx:logrotate
+    - nginx:logs

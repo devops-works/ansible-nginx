@@ -21,6 +21,7 @@ Role Variables
   - `nginx_worker_connections`: sets the maximum number of simultaneous connections that can be opened by a worker process (default: 1024)
   - `nginx_mode`: whether we'll run php5-fpm (default: php5-fpm)
   - `nginx_add_default`: do we add a default vhost (default: yes)
+  - `nginx_log_group`: unix group to use when creating log files after rotateion (default: "adm")
 
 Tags
 ----
