@@ -1,4 +1,4 @@
 ---
-- include: nginx.yml
+- include_tasks: nginx.yml
   tags:
     - nginx
