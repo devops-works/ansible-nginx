@@ -12,7 +12,7 @@
 
 - name: Installs nginx
   apt:
-    pkg: {{ __pkg_name }}
+    pkg: "{{ __pkg_name }}"
     state: latest  # noqa 403
     update_cache: yes
   register: __nginx_just_installed
