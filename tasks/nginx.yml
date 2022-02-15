@@ -2,15 +2,17 @@
 - name: Adds nginx ppa
   apt_repository:
     repo: "ppa:nginx/stable"
+  when: ansible_distribution == "Ubuntu"
 
 - name: Adds PPA key
   apt_key:
     url: http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x00A6F0A3C300EE8C
     state: present
+  when: ansible_distribution == "Ubuntu"
 
 - name: Installs nginx
   apt:
-    pkg: nginx-full
+    pkg: {{ __pkg_name }}
     state: latest  # noqa 403
     update_cache: yes
   register: __nginx_just_installed
