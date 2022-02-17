@@ -8,6 +8,10 @@
     - vars
     - nginx
 
-- include_tasks: nginx.yml
+- include_tasks:
+    file: nginx.yml
+    apply:
+      tags:
+        - nginx
   tags:
-    - nginx
+    - always
