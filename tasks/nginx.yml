@@ -1,50 +1,50 @@
 ---
 - name: Adds nginx ppa
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "ppa:nginx/stable"
   when: ansible_distribution == "Ubuntu"
 
 - name: Adds PPA key
-  apt_key:
+  ansible.builtin.apt_key:
     url: http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x00A6F0A3C300EE8C
     state: present
   when: ansible_distribution == "Ubuntu"
 
 - name: Installs nginx
-  apt:
+  ansible.builtin.apt:
     pkg: "{{ __pkg_name }}"
     state: latest  # noqa 403
     update_cache: yes
   register: __nginx_just_installed
 
 - name: Writes nginx.conf
-  template:
+  ansible.builtin.template:
     src: nginx.j2
     dest: "/etc/nginx/nginx.conf"
   notify:
     - Restart nginx
 
 - name: Removes nginx default server link
-  file:
+  ansible.builtin.file:
     path: /etc/nginx/sites-enabled/default
     state: absent
   notify: Restart nginx
 
 - name: Removes nginx default server
-  file:
+  ansible.builtin.ile:
     path: /etc/nginx/sites-available/default
     state: absent
   notify: Restart nginx
 
 - name: Writes nginx.conf
-  template:
+  ansible.builtin.template:
     src: nginx.j2
     dest: "/etc/nginx/nginx.conf"
   notify:
     - Reload nginx
 
 - name: Replaces logrotate entry
-  template:
+  ansible.builtin.template:
     src: logrotate_nginx.j2
     dest: /etc/logrotate.d/nginx
     mode: 0644
@@ -52,7 +52,7 @@
 - name: Enables nginx at start
   # service module is severely broken on 14.04
   # service: name=nginx enabled=yes
-  command: update-rc.d nginx defaults
+  ansible.builtin.command: update-rc.d nginx defaults
   when: __nginx_just_installed is changed  # noqa 503
   notify:
     - Restart nginx
