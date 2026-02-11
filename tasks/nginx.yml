@@ -31,7 +31,7 @@
   notify: Restart nginx
 
 - name: Removes nginx default server
-  ansible.builtin.ile:
+  ansible.builtin.file:
     path: /etc/nginx/sites-available/default
     state: absent
   notify: Restart nginx
